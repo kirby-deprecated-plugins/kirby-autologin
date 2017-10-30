@@ -10,9 +10,8 @@ class Autologin {
     function __construct() {
         $this->url = c::get('plugin.autologin.url', 'login');
         $this->username = c::get('plugin.autologin.username', $this->usernameFallback());
-        $this->protected = c::get('plugin.autologin.protected', true);
         $this->active = c::get('plugin.autologin.active', true);
-        $this->redirect = c::get('plugin.autologin.redirect', 'panel');
+        $this->redirect = c::get('plugin.autologin.redirect', 'panel2');
         $this->whitelist = c::get('plugin.autologin.whitelist', [
             'localhost',
             '127.0.0.1',
@@ -91,7 +90,7 @@ class Autologin {
 
     // Check if environment is localhost
     function isLocalhost() {
-        if(!$this->protected) return true;
+        if(is_string($this->whitelist) && $this->whitelist == 'all') return true;
 
         $ip = $_SERVER["REMOTE_ADDR"];
 

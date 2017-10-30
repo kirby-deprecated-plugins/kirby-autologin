@@ -11,7 +11,7 @@ Login to your panel without a username or password. Simplifies development.
 ## Usage
 
 1. Go to your domain and visit `/login` or `/login/your_username`.
-1. If you are on a localhost environment, you should be logged in automatically. If you are not, nothing should happpen.
+1. Congratulations, your are logged in!
 
 ## Options (optional)
 
@@ -20,7 +20,6 @@ The following options can be set in your `/site/config/config.php` file:
 ```php
 c::set('plugin.autologin.active', true);
 c::set('plugin.autologin.url', 'login');
-c::set('plugin.autologin.protected', true);
 c::set('plugin.autologin.redirect', 'panel');
 c::set('plugin.autologin.username', $this->usernameFallback());
 c::set('plugin.autologin.whitelist', [
@@ -38,12 +37,6 @@ The plugin is activated by default but it's possible to disable it completely wi
 
 The url for the panel is often `/panel`, but you can't use that url to login automatically. By default auto logins are done with `/login`.
 
-### protected
-
-By default, this plugin will only run on localhost environments.
-
-If you are on a development server and are aware of the risks of an autologin there you can set this option to `false`. It will bypass the whitelist check.
-
 ### redirect
 
 After the user has been logged in, you will by default be logged in into the Panel. It's possible to change that with this option.
@@ -56,9 +49,11 @@ If you don't set a username, it will login to the Panel as the first created use
 
 You can set which domains and IP numbers should be allowed. By default common localhost domains and IPs are set.
 
+If the whitelist is set to the string `all`, all domains and IPs are allowed. It may be very dangerous, because anyone who knows the auto login url will have full access to your panel.
+
 ## Config
 
-If you are on a development server and need to set the protected option to `false`, then you should probably also use [custom configuration files](https://getkirby.com/docs/developer-guide/configuration/options#multi-environment-setup), like `config.beta.example.com.php` for `https://beta.example.com`.
+If you are on a development server, you should, after changing the whitelist, probably also use [multi environment configuration files](https://getkirby.com/docs/developer-guide/configuration/options#multi-environment-setup), like `config.beta.example.com.php` for `https://beta.example.com`.
 
 ## Changelog
 
