@@ -2,14 +2,16 @@
 
 *Version 0.1*
 
-Login to your panel without a username or password.
+Login to your panel without a username or password. Simplifies development.
 
-**WARNING: ONLY USE THIS PLUGIN ON A LOCALHOST OR A DEVELOPMENT ENVIROMENT.**
+**WARNING: ONLY USE THIS PLUGIN IF YOU ARE AN ADMINISTRATOR**
+
+[Installation instructions](docs/install.md)
 
 ## Usage
 
-1. Go to your domain and visit `/login` or `/login/username`.
-1. If you are on a localhost environment, you should be logged in automatically.
+1. Go to your domain and visit `/login` or `/login/your_username`.
+1. If you are on a localhost environment, you should be logged in automatically. If you are not, nothing should happpen.
 
 ## Options (optional)
 
@@ -34,11 +36,13 @@ The plugin is activated by default but it's possible to disable it completely wi
 
 ### url
 
-The url for the panel is often `/panel`, but this is the url for our route that will log us in automatically. It's set to `/login` by default.
+The url for the panel is often `/panel`, but you can't use that url to login automatically. By default auto logins are done with `/login`.
 
 ### protected
 
-By default, this plugin will only run on localhost environments. If you know what you are doing you can set this to `false`. It will skip the `whitelist` and allow auto logins on the domain no matter what. It can be good if you have a development environment on a server, for example `https://beta.example.com`. In that case you should probably use a custom config file like `config.beta.example.com.php`. Just be aware that anyone who can figure out the url to the auto login, will have full access to your Panel.
+By default, this plugin will only run on localhost environments.
+
+If you are on a development server and are aware of the risks of an autologin there you can set this option to `false`. It will bypass the whitelist check.
 
 ### redirect
 
@@ -52,7 +56,9 @@ If you don't set a username, it will login to the Panel as the first created use
 
 You can set which domains and IP numbers should be allowed. By default common localhost domains and IPs are set.
 
-###
+## Config
+
+If you are on a development server and need to set the protected option to `false`, then you should probably also use [custom configuration files](https://getkirby.com/docs/developer-guide/configuration/options#multi-environment-setup), like `config.beta.example.com.php` for `https://beta.example.com`.
 
 ## Changelog
 
