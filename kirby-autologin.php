@@ -11,7 +11,7 @@ class Autologin {
         $this->url = c::get('plugin.autologin.url', 'login');
         $this->username = c::get('plugin.autologin.username', $this->usernameFallback());
         $this->active = c::get('plugin.autologin.active', true);
-        $this->redirect = c::get('plugin.autologin.redirect', 'panel2');
+        $this->redirect = c::get('plugin.autologin.redirect', 'panel');
         $this->whitelist = c::get('plugin.autologin.whitelist', [
             'localhost',
             '127.0.0.1',
