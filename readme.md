@@ -10,7 +10,7 @@ Login to your panel without a username or password. Simplifies development.
 
 ## Usage
 
-1. Go to your domain and visit `/login` or `/login/your_username`.
+1. Go to your site and visit `/login` or `/login/your_username` on a localhost enviroment.
 1. Congratulations, your are logged in!
 
 ## Options (optional)
@@ -21,7 +21,7 @@ The following options can be set in your `/site/config/config.php` file:
 c::set('plugin.autologin.active', true);
 c::set('plugin.autologin.url', 'login');
 c::set('plugin.autologin.redirect', 'panel');
-c::set('plugin.autologin.username', $this->usernameFallback());
+c::set('plugin.autologin.username', ''); // Will fallback to the first admin user
 c::set('plugin.autologin.whitelist', [
     'localhost',
     '127.0.0.1',
@@ -67,7 +67,7 @@ If you are on a development server, you should, after changing the whitelist, pr
 
 ## Disclaimer
 
-This plugin is provided "as is" with no guarantee. Use it at your own risk and always test it yourself before using it in a production environment. If you find any issues, please [create a new issue](https://github.com/username/plugin-name/issues/new).
+This plugin is provided "as is" with no guarantee. Use it at your own risk and always test it yourself before using it in a production environment. If you find any issues, please [create a new issue](https://github.com/jenstornell/kirby-autologin/issues/new).
 
 ## License
 
