@@ -2,6 +2,7 @@
 namespace Autologin;
 use url;
 use c;
+use visitor;
 
 $Autologin = new Autologin();
 $Autologin->run();
@@ -91,10 +92,7 @@ class Autologin {
     // Check if environment is localhost
     function isLocalhost() {
         if(is_string($this->whitelist) && $this->whitelist == 'all') return true;
-
-        $ip = $_SERVER["REMOTE_ADDR"];
-
-        if(in_array($ip, $this->whitelist)) return true;
+        if(in_array(visitor::ip(), $this->whitelist)) return true;
         if(in_array(url::host(), $this->whitelist)) return true;
     }
 }

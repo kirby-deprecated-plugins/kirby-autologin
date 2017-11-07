@@ -1,6 +1,6 @@
 # Kirby Autologin
 
-*Version 0.1*
+*Version 0.2*
 
 Login to your panel without a username or password. Simplifies development.
 
@@ -56,6 +56,10 @@ If the whitelist is set to the string `all`, all domains and IPs are allowed. It
 If you are on a development server, you should, after changing the whitelist, probably also use [multi environment configuration files](https://getkirby.com/docs/developer-guide/configuration/options#multi-environment-setup), like `config.beta.example.com.php` for `https://beta.example.com`.
 
 ## Changelog
+
+**0.2**
+
+- Fixed an IP notice bug. Thanks Wottpal and Sebsel.
 
 **0.1**
 
